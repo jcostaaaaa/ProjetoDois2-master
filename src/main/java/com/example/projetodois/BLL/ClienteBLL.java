@@ -1,21 +1,20 @@
 package com.example.projetodois.BLL;
 
-import com.example.projetodois.DAL.ClientesEntity;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.projetodois.DAL.Clientes;
 
 public class ClienteBLL {
 
-    private  static final String PERSISTENCE_UNIT_NAME = "com.example.projetodois";
+    private  static final String PERSISTENCE_UNIT_NAME = "default";
         private static EntityManagerFactory factory = null;
         private static EntityManager em = null;
 
-        public static void create(ClientesEntity cli){
+        public static void create(Clientes cli){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -26,8 +25,8 @@ public class ClienteBLL {
             em.getTransaction().commit();//guardou
         }
 
-        public static ClientesEntity read(int idCliente){
-            ClientesEntity cli = null;
+        public static Clientes read(int idCliente){
+            Clientes cli = null;
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -38,7 +37,7 @@ public class ClienteBLL {
             Object obj = q1.getSingleResult();
 
             if(obj != null){
-                cli = ((ClientesEntity)obj);
+                cli = ((Clientes)obj);
             }
             else
                 return null;
@@ -47,8 +46,8 @@ public class ClienteBLL {
             return cli;
         }
 
-        public static List<ClientesEntity> readAll(){
-            List<ClientesEntity> listaCli = new ArrayList<> ();
+        public static List<Clientes> readAll(){
+            List<Clientes> listaCli = new ArrayList<> ();
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -58,14 +57,14 @@ public class ClienteBLL {
             List<Object> result = q1.getResultList();
 
             for(Object cli : result){
-                listaCli.add((ClientesEntity) cli);
+                listaCli.add((Clientes) cli);
             }
 
             return listaCli;
         }
 
-        public static List<ClientesEntity> readAll(String nome){
-            List<ClientesEntity> listaCli = new ArrayList<>();
+        public static List<Clientes> readAll(String nome){
+            List<Clientes> listaCli = new ArrayList<>();
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -76,13 +75,13 @@ public class ClienteBLL {
             List<Object> result = q1.getResultList();
 
             for(Object cli : result){
-                listaCli.add((ClientesEntity) cli);
+                listaCli.add((Clientes) cli);
             }
 
             return listaCli;
         }
 
-        public static void update(ClientesEntity cli){
+        public static void update(Clientes cli){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
@@ -93,7 +92,7 @@ public class ClienteBLL {
             em.getTransaction().commit();
         }
 
-        public static void delete(ClientesEntity cli){
+        public static void delete(Clientes cli){
             if(factory == null)
                 factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 

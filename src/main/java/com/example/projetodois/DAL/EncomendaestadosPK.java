@@ -7,23 +7,15 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class PratosEncomendadosEntityPK implements Serializable {
-    @Column(name = "ID_PRATO", nullable = false, precision = 0)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private short idPrato;
+public class EncomendaestadosPK implements Serializable {
     @Column(name = "ID_ENCOMENDA", nullable = false, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short idEncomenda;
-
-    public short getIdPrato() {
-        return idPrato;
-    }
-
-    public void setIdPrato(short idPrato) {
-        this.idPrato = idPrato;
-    }
+    @Column(name = "ID_ESTADOENCOMENDA", nullable = false, precision = 0)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private short idEstadoencomenda;
 
     public short getIdEncomenda() {
         return idEncomenda;
@@ -33,16 +25,24 @@ public class PratosEncomendadosEntityPK implements Serializable {
         this.idEncomenda = idEncomenda;
     }
 
+    public short getIdEstadoencomenda() {
+        return idEstadoencomenda;
+    }
+
+    public void setIdEstadoencomenda(short idEstadoencomenda) {
+        this.idEstadoencomenda = idEstadoencomenda;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PratosEncomendadosEntityPK that = (PratosEncomendadosEntityPK) o;
-        return idPrato == that.idPrato && idEncomenda == that.idEncomenda;
+        EncomendaestadosPK that = (EncomendaestadosPK) o;
+        return idEncomenda == that.idEncomenda && idEstadoencomenda == that.idEstadoencomenda;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idPrato, idEncomenda);
+        return Objects.hash(idEncomenda, idEstadoencomenda);
     }
 }

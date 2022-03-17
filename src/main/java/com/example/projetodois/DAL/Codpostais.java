@@ -4,8 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "CODPOSTAIS", schema = "PROJETOBD", catalog = "")
-public class CodpostaisEntity {
+public class Codpostais {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "CODPOSTAL", nullable = false, length = 10)
@@ -34,7 +33,7 @@ public class CodpostaisEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CodpostaisEntity that = (CodpostaisEntity) o;
+        Codpostais that = (Codpostais) o;
         return Objects.equals(codpostal, that.codpostal) && Objects.equals(localidade, that.localidade);
     }
 

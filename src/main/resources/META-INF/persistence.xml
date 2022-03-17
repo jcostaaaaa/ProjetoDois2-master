@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+  <persistence-unit name="default">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>com.example.projetodois.DAL.Clientes</class>
+    <class>com.example.projetodois.DAL.Codpostais</class>
+    <class>com.example.projetodois.DAL.Encomendaestados</class>
+    <class>com.example.projetodois.DAL.Encomendas</class>
+    <class>com.example.projetodois.DAL.Encomendaestados</class>
+    <class>com.example.projetodois.DAL.Estafeta</class>
+    <class>com.example.projetodois.DAL.Pratos</class>
+    <class>com.example.projetodois.DAL.PratosEncomendados</class>
+    <class>com.example.projetodois.DAL.Tipopagamentos</class>
+    <class>com.example.projetodois.DAL.Users</class>
+     <properties>
+      <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:49677:XE"/>
+      <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.user" value="projetobd"/>
+      <property name="javax.persistence.jdbc.password" value="projetobd"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="hibernate.id.new_generator_mappings" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>

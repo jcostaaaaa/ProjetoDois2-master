@@ -5,9 +5,8 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ENCOMENDAESTADOS", schema = "PROJETOBD", catalog = "")
-@IdClass(EncomendaestadosEntityPK.class)
-public class EncomendaestadosEntity {
+@IdClass(EncomendaestadosPK.class)
+public class Encomendaestados {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_ENCOMENDA", nullable = false, precision = 0)
@@ -48,7 +47,7 @@ public class EncomendaestadosEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EncomendaestadosEntity that = (EncomendaestadosEntity) o;
+        Encomendaestados that = (Encomendaestados) o;
         return idEncomenda == that.idEncomenda && idEstadoencomenda == that.idEstadoencomenda && Objects.equals(data, that.data);
     }
 

@@ -5,8 +5,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "PRATOS_ENCOMENDADOS", schema = "PROJETOBD", catalog = "")
-@IdClass(PratosEncomendadosEntityPK.class)
-public class PratosEncomendadosEntity {
+@IdClass(PratosEncomendadosPK.class)
+public class PratosEncomendados {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_PRATO", nullable = false, precision = 0)
@@ -58,7 +58,7 @@ public class PratosEncomendadosEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PratosEncomendadosEntity that = (PratosEncomendadosEntity) o;
+        PratosEncomendados that = (PratosEncomendados) o;
         return idPrato == that.idPrato && idEncomenda == that.idEncomenda && Double.compare(that.qtddoses, qtddoses) == 0 && Double.compare(that.precodose, precodose) == 0;
     }
 

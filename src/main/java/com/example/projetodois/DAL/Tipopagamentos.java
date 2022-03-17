@@ -4,8 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TIPOPAGAMENTOS", schema = "PROJETOBD", catalog = "")
-public class TipopagamentosEntity {
+public class Tipopagamentos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "TIPOPAGAMENTOID", nullable = false, precision = 0)
@@ -34,7 +33,7 @@ public class TipopagamentosEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TipopagamentosEntity that = (TipopagamentosEntity) o;
+        Tipopagamentos that = (Tipopagamentos) o;
         return tipopagamentoid == that.tipopagamentoid && Objects.equals(descricao, that.descricao);
     }
 

@@ -8,12 +8,10 @@ package com.example.projetodois;
 
 
 import java.util.List;
-import com.example.projetodois.DAL.ClientesEntity;
+
 import com.example.projetodois.BLL.ClienteBLL;
+import com.example.projetodois.DAL.Clientes;
 //import com.example.projetodois.JPABLL.ClienteJpaController;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 
 /**
@@ -28,7 +26,7 @@ public class main {
     public static void main(String[] args) {
 
 
-        ClientesEntity cli = new ClientesEntity ();
+        Clientes cli = new Clientes ();
         cli.setNome("Jeronimo Mafarrico");
         cli.setRua ("Rua BLALBLA");
         cli.setCodpostal ("7892-674");
@@ -41,14 +39,14 @@ public class main {
         //
         System.out.println("ID criado: " + cli.getIdCliente());
 
-        ClientesEntity cl2 = ClienteBLL.read(cli.getIdCliente());
+        Clientes cl2 = ClienteBLL.read(cli.getIdCliente());
 
         if (cli.equals(cl2)) System.out.println("É o mesmo cliente!!!");
         else System.out.println("Pois!");
 
 
-        List<ClientesEntity> lista = ClienteBLL.readAll("Ana");
-        for(ClientesEntity cli1 : lista)
+        List<Clientes> lista = ClienteBLL.readAll("Ana");
+        for(Clientes cli1 : lista)
             System.out.println("ID " + cli1.getIdCliente() + " chama-se " + cli1.getNome() + " e mora em " + cli1.getRua ());
 
 
@@ -56,7 +54,7 @@ public class main {
       /*
         // TODO code application logic here
 
-        ClientesEntity cli = new ClientesEntity ();
+        Clientes cli = new Clientes ();
         cli.setIdCliente ('6');
         cli.setNome("Alambique de Almeida");
         cli.setNif ("444444");
@@ -73,9 +71,9 @@ public class main {
         System.out.println("ID " + cl2.getIdCliente() + " chama-se " + cl2.getNome() + " e mora em " + cl2.getMorada());
 
 
-        List<ClientesEntity> listaDeClientes = ClientesEntity.readAll( "nome");
+        List<Clientes> listaDeClientes = Clientes.readAll( "nome");
 
-        for(ClientesEntity cl : listaDeClientes)
+        for(Clientes cl : listaDeClientes)
             System.out.println("ID " + cl.getIdCliente() + " chama-se " + cl.getNome() + " e mora em " + cl.getRua ());
 
         System.out.println("----------------------------------------------------------------------------------------");
